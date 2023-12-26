@@ -1,70 +1,118 @@
 // Node class is implemented for you, no need to look for bugs here!
 class DoublyLinkedNode {
-    constructor(val) {
-        this.value = val;
-        this.next = null;
-        this.prev = null;
-    }
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+    this.prev = null;
+  }
 }
 
 class DoublyLinkedList {
-    constructor() {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  addToHead(val) {
+    // There are bugs in this method! Fix them!!!
+    // Write your hypothesis on the time complexity of this method here
+    // Time complexity O(1) it will be constant
+
+    // Add node of val to head of linked list
+    let newNode = new DoublyLinkedNode(val);
+    // this.length++;
+    if (this.length > 0) {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      this.head = newNode;
+      this.tail = newNode;
     }
 
-    addToHead(val) {
-        // There are bugs in this method! Fix them!!!
-        // Write your hypothesis on the time complexity of this method here
+    this.length++;
+  }
 
-        // Add node of val to head of linked list
-        let newNode = new DoublyLinkedNode(val);
+  addToTail(val) {
+    let newNode = new DoublyLinkedNode(val);
 
-        if (this.length >= 0) {
-            this.head.previous = newNode;
-            newNode.next = this.head;
-            this.head = newNode;
-        } else {
-            this.head = newNode;
-            this.tail = newNode;
-        }
-
-        this.length++;
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else if (this.length > 0) {
+      newNode.prev = this.tail;
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
 
-    addToTail(val) {
-        // Add node of val to tail of linked list
+    this.length++;
+    // Add node of val to tail of linked list
+    // Write your hypothesis on the time complexity of this method here
+    // Time complexity O(1)
+  }
 
-        // Write your hypothesis on the time complexity of this method here
+  removeFromHead() {
+    // Remove node at head
+    if (!this.length) return undefined;
+
+    let currentHead = this.head;
+
+    if (this.head.next) {
+      this.head = this.head.next;
+      this.head.prev = null;
+    } else {
+      this.head = null;
+      this.tail = null;
     }
 
-    removeFromHead() {
-        // Remove node at head
+    this.length--;
+    return currentHead.value;
+    // Write your hypothesis on the time complexity of this method here
+  }
 
-        // Write your hypothesis on the time complexity of this method here
+  removeFromTail() {
+    // Remove node at tail
+    if (!this.length) return undefined;
+    let currentTail = this.tail;
+    if (this.tail.prev) {
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    } else {
+      this.head = null;
+      this.tail = null;
     }
+    this.length--;
+    return currentTail.value;
+    // Write your hypothesis on the time complexity of this method here
+  }
 
-    removeFromTail() {
-        // Remove node at tail
+  peekAtHead() {
+    // Return value of head node
+    return this.length ? this.head.value : undefined;
+    // Write your hypothesis on the time complexity of this method here
+  }
 
-        // Write your hypothesis on the time complexity of this method here
-    }
-
-    peekAtHead() {
-        // Return value of head node
-
-        // Write your hypothesis on the time complexity of this method here
-    }
-
-    peekAtTail() {
-        // Return value of tail node
-        
-        // Write your hypothesis on the time complexity of this method here
-    }
+  peekAtTail() {
+    // Return value of tail node
+    return this.length ? this.tail.value : undefined;
+    // Write your hypothesis on the time complexity of this method here
+  }
 }
 
+const dll = new DoublyLinkedList();
+console.log(dll.peekAtHead());
+dll.addToHead("C");
+dll.addToHead("B");
+dll.addToHead("A");
+console.log(dll.length);
+dll.removeFromHead();
+dll.removeFromHead();
+dll.removeFromHead();
+console.log(dll.length);
+// console.log("tail ", dll.tail);
+// console.log("head ", dll.head);
 module.exports = {
-    DoublyLinkedList,
-    DoublyLinkedNode
-}
+  DoublyLinkedList,
+  DoublyLinkedNode,
+};
