@@ -69,6 +69,7 @@ class DoublyLinkedList {
     this.length--;
     return currentHead.value;
     // Write your hypothesis on the time complexity of this method here
+    // time complexity O(1)
   }
 
   removeFromTail() {
@@ -85,18 +86,21 @@ class DoublyLinkedList {
     this.length--;
     return currentTail.value;
     // Write your hypothesis on the time complexity of this method here
+    // time complexity O(1)
   }
 
   peekAtHead() {
     // Return value of head node
     return this.length ? this.head.value : undefined;
     // Write your hypothesis on the time complexity of this method here
+    // Time complexity O(1)
   }
 
   peekAtTail() {
     // Return value of tail node
     return this.length ? this.tail.value : undefined;
     // Write your hypothesis on the time complexity of this method here
+    // Time complexity O(1)
   }
 }
 
