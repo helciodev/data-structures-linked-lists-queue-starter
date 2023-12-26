@@ -26,6 +26,7 @@ class SinglyLinkedList {
   addToTail(val) {
     // There are bugs in this method! Fix them!!!
     // Write your hypothesis on the time complexity of this method here
+    // I guess the time complexity for this function is O(n) due to it having to iterate through all nodes before assigning a new node with the value as the next node for the last
 
     // Add node of val to tail of linked list
     let newNode = new SinglyLinkedNode(val);
@@ -57,6 +58,7 @@ class SinglyLinkedList {
     this.length--;
     return current;
     // Write your hypothesis on the time complexity of this method here
+    // Time complexity O(1)
   }
 
   removeFromTail() {
