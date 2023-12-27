@@ -105,15 +105,6 @@ class SinglyLinkedList {
   }
 }
 
-const ll = new SinglyLinkedList();
-ll.addToTail("A");
-ll.addToTail("B");
-console.log(ll.length);
-ll.removeFromTail();
-console.log(ll.length);
-ll.removeFromTail();
-console.log(ll.length);
-
 module.exports = {
   SinglyLinkedList,
   SinglyLinkedNode,

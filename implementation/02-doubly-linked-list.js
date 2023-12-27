@@ -104,18 +104,6 @@ class DoublyLinkedList {
   }
 }
 
-const dll = new DoublyLinkedList();
-console.log(dll.peekAtHead());
-dll.addToHead("C");
-dll.addToHead("B");
-dll.addToHead("A");
-console.log(dll.length);
-dll.removeFromHead();
-dll.removeFromHead();
-dll.removeFromHead();
-console.log(dll.length);
-// console.log("tail ", dll.tail);
-// console.log("head ", dll.head);
 module.exports = {
   DoublyLinkedList,
   DoublyLinkedNode,
